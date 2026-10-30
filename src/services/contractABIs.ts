@@ -1,0 +1,40 @@
+export const ESCROW_FACTORY_ABI = [
+  "event AgreementCreated(address indexed escrowAddress, address indexed client, address indexed freelancer, address arbitrator, string title, uint256 totalAmount, uint256 milestoneCount, uint256 timestamp)",
+  "function createAgreement(address _freelancer, address _arbitrator, string memory _title, string[] memory _milestoneTitles, uint256[] memory _milestoneAmounts, uint256[] memory _milestoneDeadlines) external returns (address escrowAddress)",
+  "function getEscrowCount() external view returns (uint256)",
+  "function getAllEscrows() external view returns (address[] memory)",
+  "function getEscrowsForClient(address _client) external view returns (address[] memory)",
+  "function getEscrowsForFreelancer(address _freelancer) external view returns (address[] memory)",
+  "function escrowDetails(address) external view returns (address escrowAddress, address client, address freelancer, address arbitrator, string title, uint256 totalAmount, uint256 createdAt)"
+];
+
+export const FREELANCE_ESCROW_ABI = [
+  "event FundingReceived(address indexed client, uint256 amount, uint256 timestamp)",
+  "event MilestoneSubmitted(uint256 indexed index, string note, uint256 timestamp)",
+  "event MilestoneReleased(uint256 indexed index, uint256 amount, address indexed freelancer, uint256 timestamp)",
+  "event DisputeRaised(uint256 indexed index, address indexed raisedBy, uint256 timestamp)",
+  "event DisputeResolved(uint256 indexed index, address indexed arbitrator, uint256 freelancerShareBps, uint256 freelancerAmount, uint256 clientRefundAmount, uint256 timestamp)",
+  "event MilestoneRefunded(uint256 indexed index, uint256 amount, address indexed client, uint256 timestamp)",
+  "event Withdrawal(address indexed recipient, uint256 amount, uint256 timestamp)",
+  "event AgreementCompleted(uint256 timestamp)",
+  "function client() external view returns (address)",
+  "function freelancer() external view returns (address)",
+  "function arbitrator() external view returns (address)",
+  "function title() external view returns (string)",
+  "function agreementState() external view returns (uint8)",
+  "function totalRequired() external view returns (uint256)",
+  "function totalReserved() external view returns (uint256)",
+  "function totalCredited() external view returns (uint256)",
+  "function totalWithdrawn() external view returns (uint256)",
+  "function withdrawable(address) external view returns (uint256)",
+  "function fundAgreement() external payable",
+  "function submitMilestone(uint256 index, string calldata note) external",
+  "function approveMilestone(uint256 index) external",
+  "function raiseDispute(uint256 index) external",
+  "function resolveDispute(uint256 index, uint256 freelancerShareBps) external",
+  "function refundMilestone(uint256 index) external",
+  "function withdraw() external",
+  "function getMilestonesCount() external view returns (uint256)",
+  "function getMilestone(uint256 index) external view returns (string title, uint256 amount, uint256 deadline, uint8 state, string submissionNote, uint256 freelancerShare, uint256 clientRefund)",
+  "function verifyAccountingInvariant() external view returns (bool isHolding, uint256 currentBalance, uint256 liabilities)"
+];

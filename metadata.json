@@ -1,0 +1,6 @@
+{
+  "name": "Freelance Milestone Escrow",
+  "description": "Secure milestone escrow platform for freelance agreements with protected on-chain deposits, automated milestone approvals, and fair dispute resolution.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

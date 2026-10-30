@@ -1,0 +1,15 @@
+node_modules/
+build/
+dist/
+coverage/
+cache/
+artifacts/
+ignition/deployments/
+.aistudio/
+public/assets/aistudio/
+.DS_Store
+*.log
+.env*
+
+
+
